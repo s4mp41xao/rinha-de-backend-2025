@@ -24,14 +24,14 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
       - PAYMENT_PROCESSOR_DEFAULT_URL=http://host.docker.internal:8001
       - PAYMENT_PROCESSOR_FALLBACK_URL=http://host.docker.internal:8002
-      - JAVA_OPTS=-Xmx110m -Xms50m
+      - JAVA_OPTS=-Xmx100m -Xms50m
     depends_on:
       - db
     deploy:
       resources:
         limits:
           cpus: '0.6'
-          memory: 130M
+          memory: 120M
 
   app2:
     image: s4mp41xao/rinha-backend-2025:latest
@@ -41,14 +41,14 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
       - PAYMENT_PROCESSOR_DEFAULT_URL=http://host.docker.internal:8001
       - PAYMENT_PROCESSOR_FALLBACK_URL=http://host.docker.internal:8002
-      - JAVA_OPTS=-Xmx110m -Xms50m
+      - JAVA_OPTS=-Xmx100m -Xms50m
     depends_on:
       - db
     deploy:
       resources:
         limits:
           cpus: '0.6'
-          memory: 130M
+          memory: 120M
 
   db:
     image: postgres:15
@@ -61,8 +61,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: 140M
+          cpus: '0.2'
+          memory: 90M
 
 networks:
   default:
